@@ -1063,3 +1063,31 @@ window.addEventListener('load', () => {
   });
 });
 </script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+window.addEventListener('load', () => {
+  document.querySelectorAll('.fade-up-d1,.fade-up-d2,.fade-up-d3,.fade-up-d4').forEach(el => {
+    el.classList.add('fade-up');
+  });
+});
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, 60);
+});
+document.querySelectorAll('a,button,.tile-arrow,.filter-btn,.portfolio-item,.nav-cta').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.style.transform = 'translate(-50%,-50%) scale(1.8)');
+  el.addEventListener('mouseleave', () => ring.style.transform = 'translate(-50%,-50%) scale(1)');
+});
+</script>
+</body>
+</html>
