@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Lillie Collective — A creative studio for those building something worth seeing.</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- GRAIN OVERLAY -->
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo" aria-label="BLC Home">
+      <img src="logo.svg" alt="Black Lillie Collective" class="nav-logo-img" />
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <img src="logo.svg" alt="menu" class="nav-toggle-lily" />
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>      <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+
+      <!-- LILY DRAW-ON ANIMATION -->
+      <div class="lily-hero-wrap" id="lilyHero" aria-hidden="true">
+        <svg class="lily-draw" viewBox="0 0 841.89 595.28" xmlns="http://www.w3.org/2000/svg">
+          <!-- stamens — draw first -->
+          <line class="ld ld-stamen" x1="424.71" y1="284.77" x2="464.09" y2="219.13"/>
+          <line class="ld ld-stamen" x1="418.82" y1="294.58" x2="367.14" y2="208.44"/>
+          <line class="ld ld-stamen" x1="418.82" y1="294.58" x2="418.82" y2="174.58"/>
+          <!-- stamen dots — pop in -->
+          <circle class="ld ld-dot" cx="418.82" cy="164.58" r="8"/>
+          <circle class="ld ld-dot" cx="469.33" cy="210.4"  r="8"/>
+          <circle class="ld ld-dot" cx="363.52" cy="202.4"  r="8"/>
+          <!-- left petal sweep -->
+          <path class="ld ld-petal" d="M225.73,186.02c66.28-.43,153.09,39.28,179.43,104.9l10,17.32,12.32-18.66c-9.02-75.62-56.85-152.58-201.75-103.56Z"/>
+          <!-- right petal sweep -->
+          <path class="ld ld-petal" d="M617.66,404.36c-67.57-2.5-161.71-53.61-190.17-114.78l-5-8.66-12.32,18.66c9.02,75.62,83.02,142.63,207.49,104.78Z"/>
+          <!-- bottom leaf -->
+          <path class="ld ld-leaf" d="M416.22,517.41c-59.28-57.32-50.98-146.67.64-204.16l10-17.32s0,0-22.32-1.34c-60,46-100.29,122.78,11.68,222.82Z"/>
+          <!-- top leaf -->
+          <path class="ld ld-leaf" d="M418.56,75.03c59.28,57.32,40.26,150.26-3.4,205.88l-10,17.32,22.32,1.34c60.98-45.62,105.98-123.56-8.92-224.54Z"/>
+          <!-- center bud fill -->
+          <path class="ld ld-bud" d="M418.73,76.02c-4.88-.05-9.94,2.44-14.13,5.25-67.82,43.8-83.01,141.36-24.35,194.05,7.82,5.76,17.09,9.82,24.99,13.94,6.89,3.38,9.89,5.2,13.54,6.75.21,0,.33-.04.55-.14,1.58-.75,2.51-1.28,5.27-2.65,13.93-7.51,31.14-13.69,41.99-26.33,48.1-57.83,30.02-147.45-37.4-187.95-3.35-1.81-6.8-2.92-10.26-2.93h-.19Z"/>
+          <!-- lower bud outline -->
+          <path class="ld ld-bud" d="M384.19,312.37c-63.22,58.25-55.59,163.61,26.64,201.75,2.73,1.27,7.93,5.01,7.93,5.01,75.72-35.04,100.8-136.54,47.88-195.69-4.85-5.56-14.85-14.68-21.51-17.93-7.48-3.77-20.2-7.86-26.29-10.92"/>
+        </svg>
+        <!-- mauve glow pulse after draw completes -->
+        <div class="lily-glow" id="lilyGlow"></div>
+      </div>
+
+      <!-- HERO TEXT — hidden until lily finishes -->
+      <div class="hero-text-wrap" id="heroText">
+        <p class="hero-top">WE DON'T DO BASIC.</p>
+        <!-- POLAROID ARCH -->
+        <div class="polaroid-arch">
+          <div class="polaroid p1"><div class="polaroid-inner"></div></div>
+          <div class="polaroid p2"><div class="polaroid-inner"></div></div>
+          <div class="polaroid p3"><div class="polaroid-inner"></div></div>
+          <div class="polaroid p4"><div class="polaroid-inner"></div></div>
+          <div class="polaroid p5"><div class="polaroid-inner"></div></div>
+        </div>
+        <p class="hero-bottom">WE DO <span class="cycling-word" id="cycler">BOLD.</span></p>
+        <a href="work.html" class="hero-btn">See Our Work</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BLC STORY PREVIEW -->
+  <section class="story-preview section-pad">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text reveal">
+          <p class="eyebrow">The Studio</p>
+          <h2>Built different.<br/>On purpose.</h2>
+          <p class="body-copy">Black Lillie Collective is a luxury creative agency rooted in DFW and reaching everywhere. We work with brands who refuse to be forgettable — and we build the visuals, strategy, and content to prove it.</p>
+          <a href="story.html" class="link-arrow">Our Story →</a>
+        </div>
+        <div class="story-lily reveal-slow">
+          <img src="logo.svg" alt="BLC Lily" class="ghost-lily" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="selected-work section-pad">
+    <div class="container">
+      <p class="eyebrow reveal">Selected Work</p>
+      <h2 class="reveal">What we've built.</h2>
+      <div class="stacked-deck reveal-slow">
+        <div class="deck-card card-back c3">
+          <div class="card-label">Events &amp; Coverage</div>
+        </div>
+        <div class="deck-card card-back c2">
+          <div class="card-label">Brand Strategy</div>
+        </div>
+        <div class="deck-card card-front c1">
+          <div class="card-label">Print &amp; Design</div>
+          <a href="work.html" class="card-link">View Work →</a>
+        </div>
+      </div>
+      <div class="work-cta reveal">
+        <a href="work.html" class="btn-outline">See All Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES LIST -->
+  <section class="services-preview section-pad">
+    <div class="container">
+      <p class="eyebrow reveal">What We Do</p>
+      <div class="services-list">
+        <a href="services.html#print" class="service-row reveal">
+          <span class="service-name">Print &amp; Design</span>
+          <span class="service-arrow">→</span>
+        </a>
+        <a href="services.html#ugc" class="service-row reveal">
+          <span class="service-name">UGC Creation</span>
+          <span class="service-arrow">→</span>
+        </a>
+        <a href="services.html#social" class="service-row reveal">
+          <span class="service-name">Social Media Management</span>
+          <span class="service-arrow">→</span>
+        </a>
+        <a href="services.html#brand" class="service-row reveal">
+          <span class="service-name">Brand &amp; Creative Strategy</span>
+          <span class="service-arrow">→</span>
+        </a>
+        <a href="services.html#events" class="service-row reveal">
+          <span class="service-name">Events &amp; Coverage</span>
+          <span class="service-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner section-pad">
+    <div class="container text-center reveal">
+      <h2>Ready to build something<br/><em>worth seeing?</em></h2>
+      <div class="cta-pair">
+        <a href="quote.html" class="btn-primary">Get a Quote</a>
+        <a href="quote.html" class="btn-outline">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="logo.svg" alt="BLC" class="footer-lily" />
+        <p class="footer-name">Black Lillie Collective</p>
+        <p class="footer-tagline">A creative studio for those building something worth seeing.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="story.html">Our Story</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="quote.html">Get a Quote</a>      </nav>
+      <div class="footer-social">
+        <a href="https://instagram.com/blacklillieco" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@blacklillieco" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://pinterest.com/blacklilliecollective" target="_blank" rel="noopener">Pinterest</a>
+        <a href="https://facebook.com/blacklilliecollective" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <p class="footer-copy">© 2026 Black Lillie Collective. All rights reserved. | <a href="mailto:madison@blacklilliecollective.com">madison@blacklilliecollective.com</a></p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
