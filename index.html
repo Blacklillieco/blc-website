@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Black Lillie Collective — Creative Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --cherry:#330000; --onyx:#0F0F0F; --pearl:#C9B79C; --mauve:#B08A8E; --cream:#F4EDE4;
+  --display:'Cormorant Garamond',Georgia,serif;
+  --body:'Montserrat',sans-serif;
+  --nav-h:76px; --max:1280px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cherry);color:var(--pearl);font-family:var(--body);font-size:15px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{background:none;border:none;cursor:pointer;font-family:inherit;color:inherit;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem);}
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:9999;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px 180px;animation:gr .5s steps(2) infinite;}
+@keyframes gr{0%{transform:translate(0,0)}25%{transform:translate(-2%,-3%)}50%{transform:translate(3%,2%)}75%{transform:translate(-1%,4%)}100%{transform:translate(2%,-2%)}}
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.5rem,5vw,5rem);background:transparent;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+.nav.scrolled{background:rgba(15,15,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(176,138,142,.12);}
+.nav-mark{width:34px;height:34px;}
+.nav-mark svg{width:100%;height:100%;}
+.nav-links{display:flex;align-items:center;gap:clamp(1.2rem,2.5vw,2.6rem);}
+.nav-links a{font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--pearl);position:relative;transition:color .2s;}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--mauve);transition:width .25s;}
+.nav-links a:hover{color:var(--cream);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{border:1px solid var(--mauve);padding:.5rem 1.3rem;color:var(--mauve)!important;border-radius:1px;transition:all .2s;}
+.nav-cta:hover{background:var(--mauve);color:var(--onyx)!important;}
+.nav-cta::after{display:none!important;}
+.nav-toggle{display:none;width:34px;height:34px;}
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:var(--nav-h) 0 clamp(3rem,8vh,7rem);overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 80% at 15% 0%,rgba(176,138,142,.07),transparent 60%);z-index:0;}
+.lily-stage{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1200;background:var(--cherry);}
+.anim .lily-stage{display:flex;}
+.lily-stage svg{width:min(46vw,340px);height:auto;}
+.lily-stage .ld{fill:none;stroke:var(--mauve);stroke-linecap:round;stroke-miterlimit:40;opacity:0;}
+.lily-stage .ld-dot{fill:var(--mauve);stroke:var(--mauve);}
+@keyframes drawIn{from{stroke-dashoffset:var(--len);opacity:1}to{stroke-dashoffset:0;opacity:1}}
+@keyframes dotIn{0%{opacity:0;transform:scale(0)}70%{transform:scale(1.35)}100%{opacity:1;transform:scale(1)}}
+.ld.go-stroke{opacity:1;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:drawIn .6s cubic-bezier(.4,0,.2,1) forwards;}
+.ld.go-dot{transform-origin:center;animation:dotIn .35s cubic-bezier(.34,1.56,.64,1) forwards;}
+.lily-stage.lift{opacity:0;transform:scale(1.08);transition:opacity .9s ease,transform .9s ease;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;width:100%;}
+.kicker{font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mauve);margin-bottom:clamp(1.5rem,4vh,2.5rem);}
+.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(2.9rem,9vw,8rem);line-height:.98;letter-spacing:-.01em;color:var(--cream);max-width:14ch;}
+.hero h1 em{font-style:italic;color:var(--mauve);}
+.hero-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-top:clamp(2rem,6vh,3.5rem);flex-wrap:wrap;}
+.hero-link{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);border-bottom:1px solid var(--mauve);padding-bottom:.4rem;transition:color .2s,border-color .2s;}
+.hero-link:hover{color:var(--mauve);}
+.hero-meta{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pearl);opacity:.6;}
+.r{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease;}
+.r.in{opacity:1;transform:none;}
+html:not(.anim) .r{opacity:1;transform:none;}
+.section{padding:clamp(5rem,12vh,9rem) 0;}
+.lede{font-family:var(--display);font-style:italic;font-size:clamp(1.6rem,4vw,3rem);line-height:1.25;color:var(--cream);max-width:18ch;}
+.lede .muted{color:var(--mauve);}
+.label{font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mauve);}
+.body{font-size:.95rem;line-height:1.85;color:var(--pearl);max-width:46ch;}
+.arrow{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);transition:color .2s;}
+.arrow:hover{color:var(--mauve);}
+.divide{border-top:1px solid rgba(176,138,142,.16);}
+.story-row{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:center;}
+.story-mark{display:flex;justify-content:flex-end;}
+.story-mark svg{width:min(60%,260px);height:auto;opacity:.16;}
+.story-mark svg .ld{fill:none;stroke:var(--cream);stroke-width:9px;stroke-linecap:round;}
+.work-head{display:flex;align-items:baseline;justify-content:space-between;gap:2rem;margin-bottom:clamp(2.5rem,6vh,4rem);flex-wrap:wrap;}
+.work-head h2,.section h2{font-family:var(--display);font-weight:500;font-size:clamp(2.2rem,6vw,4.5rem);line-height:1;color:var(--cream);letter-spacing:-.01em;}
+.deck{position:relative;height:clamp(280px,38vw,420px);}
+.card{position:absolute;top:8%;width:clamp(220px,30vw,360px);aspect-ratio:4/3;background:linear-gradient(150deg,#1c0303,#0c0c0c);border:1px solid rgba(176,138,142,.22);
+  display:flex;align-items:flex-end;padding:1.4rem;transition:transform .45s cubic-bezier(.4,0,.2,1),box-shadow .45s;box-shadow:0 10px 36px rgba(0,0,0,.5);cursor:pointer;}
+.card .ct{font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mauve);}
+.card.a{left:0;transform:rotate(-6deg);z-index:1;}
+.card.b{left:34%;transform:rotate(1deg) translateY(-26px);z-index:2;}
+.card.c{right:0;transform:rotate(7deg);z-index:3;}
+.deck:hover .card.a{transform:rotate(-9deg) translateY(-10px);}
+.deck:hover .card.b{transform:rotate(1deg) translateY(-42px);box-shadow:0 22px 54px rgba(0,0,0,.6);}
+.deck:hover .card.c{transform:rotate(10deg) translateY(-10px);}
+.svc-list{margin-top:clamp(2rem,5vh,3rem);}
+.svc-line{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:baseline;padding:1.6rem 0;border-top:1px solid rgba(176,138,142,.16);transition:padding-left .25s;}
+.svc-line:last-child{border-bottom:1px solid rgba(176,138,142,.16);}
+.svc-line:hover{padding-left:.6rem;}
+.svc-line .n{font-family:var(--display);font-style:italic;font-size:1rem;color:var(--mauve);opacity:.6;}
+.svc-line .nm{font-family:var(--display);font-size:clamp(1.5rem,3.5vw,2.4rem);color:var(--cream);transition:color .2s;}
+.svc-line:hover .nm{color:var(--mauve);}
+.svc-line .ar{font-size:1.1rem;color:var(--mauve);transition:transform .2s;}
+.svc-line:hover .ar{transform:translateX(8px);}
+.cta{padding:clamp(5rem,12vh,9rem) 0;border-top:1px solid rgba(176,138,142,.16);}
+.cta h2{font-family:var(--display);font-weight:500;font-size:clamp(2.4rem,7vw,5.5rem);line-height:1;color:var(--cream);max-width:16ch;}
+.cta h2 em{font-style:italic;color:var(--mauve);}
+.cta-btn{display:inline-block;margin-top:2.5rem;background:var(--mauve);color:var(--onyx);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:1rem 2.4rem;border-radius:1px;transition:all .25s;}
+.cta-btn:hover{background:var(--cream);transform:translateY(-2px);}
+.footer{border-top:1px solid rgba(176,138,142,.14);padding:clamp(3rem,8vh,5rem) 0 2.5rem;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;}
+.foot-mark{width:42px;margin-bottom:1rem;opacity:.7;}
+.foot-name{font-family:var(--display);font-size:1.15rem;color:var(--cream);}
+.foot-tag{font-size:.78rem;opacity:.6;max-width:24ch;margin-top:.3rem;}
+.foot-col a{display:block;font-size:.74rem;letter-spacing:.05em;color:var(--pearl);margin-bottom:.7rem;transition:color .2s;}
+.foot-col a:hover{color:var(--mauve);}
+.foot-copy{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(176,138,142,.1);font-size:.7rem;opacity:.5;}
+.foot-copy a{color:inherit;}
+@media(max-width:820px){
+  .nav-links{display:none;position:fixed;top:var(--nav-h);left:0;right:0;flex-direction:column;gap:1.4rem;padding:2rem;background:rgba(15,15,15,.98);border-bottom:1px solid rgba(176,138,142,.15);}
+  .nav-links.open{display:flex;}
+  .nav-toggle{display:block;}
+  .story-row{grid-template-columns:1fr;gap:2.5rem;}
+  .story-mark{justify-content:flex-start;order:-1;}
+  .foot-top{grid-template-columns:1fr 1fr;}
+  .foot-brand{grid-column:1/-1;}
+}
+@media(max-width:560px){
+  .deck{height:auto;display:flex;flex-direction:column;gap:1rem;}
+  .card{position:relative;left:auto!important;right:auto!important;width:100%;transform:none!important;top:0;}
+  .foot-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="lily-stage" id="lilyStage" aria-hidden="true">
+  <svg viewBox="0 0 841.89 595.28" id="lilySvg" xmlns="http://www.w3.org/2000/svg">
+    <line class="ld" stroke-width="7" x1="424.71" y1="284.77" x2="464.09" y2="219.13"/>
+    <line class="ld" stroke-width="7" x1="418.82" y1="294.58" x2="367.14" y2="208.44"/>
+    <line class="ld" stroke-width="7" x1="418.82" y1="294.58" x2="418.82" y2="174.58"/>
+    <circle class="ld ld-dot" stroke-width="8" cx="418.82" cy="164.58" r="8"/>
+    <circle class="ld ld-dot" stroke-width="8" cx="469.33" cy="210.4" r="8"/>
+    <circle class="ld ld-dot" stroke-width="8" cx="363.52" cy="202.4" r="8"/>
+    <path class="ld" stroke-width="10" d="M225.73,186.02c66.28-.43,153.09,39.28,179.43,104.9l10,17.32,12.32-18.66c-9.02-75.62-56.85-152.58-201.75-103.56Z"/>
+    <path class="ld" stroke-width="10" d="M617.66,404.36c-67.57-2.5-161.71-53.61-190.17-114.78l-5-8.66-12.32,18.66c9.02,75.62,83.02,142.63,207.49,104.78Z"/>
+    <path class="ld" stroke-width="10" d="M416.22,517.41c-59.28-57.32-50.98-146.67.64-204.16l10-17.32s0,0-22.32-1.34c-60,46-100.29,122.78,11.68,222.82Z"/>
+    <path class="ld" stroke-width="10" d="M418.56,75.03c59.28,57.32,40.26,150.26-3.4,205.88l-10,17.32,22.32,1.34c60.98-45.62,105.98-123.56-8.92-224.54Z"/>
+    <path class="ld" stroke-width="10" d="M418.73,76.02c-4.88-.05-9.94,2.44-14.13,5.25-67.82,43.8-83.01,141.36-24.35,194.05,7.82,5.76,17.09,9.82,24.99,13.94,6.89,3.38,9.89,5.2,13.54,6.75.21,0,.33-.04.55-.14,1.58-.75,2.51-1.28,5.27-2.65,13.93-7.51,31.14-13.69,41.99-26.33,48.1-57.83,30.02-147.45-37.4-187.95-3.35-1.81-6.8-2.92-10.26-2.93h-.19Z"/>
+    <path class="ld" stroke-width="10" d="M384.19,312.37c-63.22,58.25-55.59,163.61,26.64,201.75,2.73,1.27,7.93,5.01,7.93,5.01,75.72-35.04,100.8-136.54,47.88-195.69-4.85-5.56-14.85-14.68-21.51-17.93-7.48-3.77-20.2-7.86-26.29-10.92"/>
+  </svg>
+</div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-mark" aria-label="BLC Home">
+    <svg viewBox="0 0 841.89 595.28" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#B08A8E" stroke-width="14" stroke-linecap="round">
+        <path d="M418.56,75c59,57,40,150-3.4,206l-10,17,22,1.3c61-46,106-124-8.9-224Z"/>
+        <path d="M416.22,517c-59-57-51-147,.6-204l10-17s0,0-22-1.3c-60,46-100,123,12,223Z"/>
+        <path d="M225.73,186c66-.4,153,39,179,105l10,17,12-19c-9-76-57-153-202-104Z"/>
+        <path d="M617.66,404c-68-2.5-162-54-190-115l-5-8.7-12,19c9,76,83,143,207,105Z"/>
+      </g>
+    </svg>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <svg viewBox="0 0 841.89 595.28" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#B08A8E" stroke-width="16" stroke-linecap="round"><path d="M418.56,75c59,57,40,150-3.4,206l-10,17,22,1.3c61-46,106-124-8.9-224Z"/><path d="M416.22,517c-59-57-51-147,.6-204l10-17s0,0-22-1.3c-60,46-100,123,12,223Z"/></g></svg>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="kicker r">Black Lillie Collective — Creative Studio &middot; DFW</p>
+    <h1 class="r">A creative studio for those building <em>something worth seeing.</em></h1>
+    <div class="hero-foot r">
+      <a href="work.html" class="hero-link">See the Work &rarr;</a>
+      <span class="hero-meta">Est. 2026 &middot; Fort Worth / Everywhere</span>
+    </div>
+  </div>
+</section>
+
+<section class="section divide">
+  <div class="wrap">
+    <p class="lede r">We build brands for the long game — <span class="muted">not the algorithm.</span> Editorial precision, cultural fluency, and a refusal to be forgettable.</p>
+  </div>
+</section>
+
+<section class="section divide">
+  <div class="wrap story-row">
+    <div>
+      <p class="label r" style="margin-bottom:1.5rem;">The Studio</p>
+      <p class="body r" style="margin-bottom:1.5rem;">Black Lillie Collective is a luxury creative studio rooted in DFW and reaching everywhere. We work with brands who refuse to blend in — and build the visuals, strategy, and content to prove it.</p>
+      <a href="story.html" class="arrow r">Our Story &rarr;</a>
+    </div>
+    <div class="story-mark r">
+      <svg viewBox="0 0 841.89 595.28" xmlns="http://www.w3.org/2000/svg">
+        <g class="ld" stroke-linecap="round">
+          <path d="M418.56,75c59,57,40,150-3.4,206l-10,17,22,1.3c61-46,106-124-8.9-224Z"/>
+          <path d="M416.22,517c-59-57-51-147,.6-204l10-17s0,0-22-1.3c-60,46-100,123,12,223Z"/>
+          <path d="M225.73,186c66-.4,153,39,179,105l10,17,12-19c-9-76-57-153-202-104Z"/>
+          <path d="M617.66,404c-68-2.5-162-54-190-115l-5-8.7-12,19c9,76,83,143,207,105Z"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section divide">
+  <div class="wrap">
+    <div class="work-head">
+      <h2 class="r">Selected<br/>Work</h2>
+      <a href="work.html" class="arrow r">See All &rarr;</a>
+    </div>
+    <div class="deck r">
+      <a href="work.html" class="card a"><span class="ct">Events &amp; Coverage</span></a>
+      <a href="work.html" class="card b"><span class="ct">Brand Strategy</span></a>
+      <a href="work.html" class="card c"><span class="ct">Print &amp; Design</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section divide">
+  <div class="wrap">
+    <h2 class="r">What We Do</h2>
+    <div class="svc-list">
+      <a href="services.html#print" class="svc-line r"><span class="n">01</span><span class="nm">Print &amp; Design</span><span class="ar">&rarr;</span></a>
+      <a href="services.html#ugc" class="svc-line r"><span class="n">02</span><span class="nm">UGC Creation</span><span class="ar">&rarr;</span></a>
+      <a href="services.html#social" class="svc-line r"><span class="n">03</span><span class="nm">Social Media Management</span><span class="ar">&rarr;</span></a>
+      <a href="services.html#brand" class="svc-line r"><span class="n">04</span><span class="nm">Brand &amp; Creative Strategy</span><span class="ar">&rarr;</span></a>
+      <a href="services.html#events" class="svc-line r"><span class="n">05</span><span class="nm">Events &amp; Coverage</span><span class="ar">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="r">Ready to build something <em>worth seeing?</em></h2>
+    <a href="quote.html" class="cta-btn r">Get a Quote &rarr;</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-mark">
+          <svg viewBox="0 0 841.89 595.28" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#B08A8E" stroke-width="14" stroke-linecap="round"><path d="M418.56,75c59,57,40,150-3.4,206l-10,17,22,1.3c61-46,106-124-8.9-224Z"/><path d="M416.22,517c-59-57-51-147,.6-204l10-17s0,0-22-1.3c-60,46-100,123,12,223Z"/><path d="M225.73,186c66-.4,153,39,179,105l10,17,12-19c-9-76-57-153-202-104Z"/><path d="M617.66,404c-68-2.5-162-54-190-115l-5-8.7-12,19c9,76,83,143,207,105Z"/></g></svg>
+        </div>
+        <p class="foot-name">Black Lillie Collective</p>
+        <p class="foot-tag">A creative studio for those building something worth seeing.</p>
+      </div>
+      <div class="foot-col">
+        <a href="story.html">Our Story</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="quote.html">Get a Quote</a>
+      </div>
+      <div class="foot-col">
+        <a href="https://instagram.com/blacklillieco" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@blacklillieco" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://pinterest.com/blacklilliecollective" target="_blank" rel="noopener">Pinterest</a>
+      </div>
+    </div>
+    <p class="foot-copy">&copy; 2026 Black Lillie Collective. <a href="mailto:madison@blacklilliecollective.com">madison@blacklilliecollective.com</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var stage = document.getElementById('lilyStage');
+  var svg   = document.getElementById('lilySvg');
+  var seen = false;
+  try { seen = sessionStorage.getItem('blc_intro') === '1'; } catch(e){}
+
+  function revealContent(){
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('.r').forEach(function(el){ io.observe(el); });
+    document.querySelectorAll('.hero .r').forEach(function(el,i){ setTimeout(function(){el.classList.add('in');}, 60*i); });
+  }
+
+  function runIntro(){
+    document.documentElement.classList.add('anim');
+    var nodes = svg.querySelectorAll('.ld');
+    var seq = [
+      {i:0,t:'s',d:150},{i:1,t:'s',d:340},{i:2,t:'s',d:500},
+      {i:3,t:'d',d:720},{i:4,t:'d',d:830},{i:5,t:'d',d:940},
+      {i:6,t:'s',d:1100},{i:7,t:'s',d:1480},
+      {i:8,t:'s',d:1860},{i:9,t:'s',d:2220},
+      {i:10,t:'s',d:2540},{i:11,t:'s',d:2860}
+    ];
+    seq.forEach(function(o){
+      var el = nodes[o.i]; if(!el) return;
+      setTimeout(function(){
+        if(o.t==='s'){
+          var len=300; try{len=el.getTotalLength();}catch(e){}
+          el.style.setProperty('--len',len);
+          el.classList.add('go-stroke');
+        } else { el.classList.add('go-dot'); }
+      }, o.d);
+    });
+    setTimeout(function(){ stage.classList.add('lift'); revealContent(); }, 3500);
+    setTimeout(function(){ stage.style.display='none'; document.documentElement.classList.remove('anim'); }, 4500);
+    try{ sessionStorage.setItem('blc_intro','1'); }catch(e){}
+  }
+
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled', window.scrollY>40); },{passive:true});
+  var tg=document.getElementById('navToggle'), nl=document.getElementById('navLinks');
+  if(tg&&nl){ tg.addEventListener('click',function(){ nl.classList.toggle('open'); });
+    nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');});}); }
+
+  if(reduced || seen){ revealContent(); }
+  else { runIntro(); }
+})();
+</script>
+</body>
+</html>

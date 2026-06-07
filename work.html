@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Black Lillie Collective</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo"><img src="logo.svg" alt="BLC" class="nav-logo-img" /></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <img src="logo.svg" alt="menu" class="nav-toggle-lily" />
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html" class="active">Work</a></li>      <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero section-pad">
+    <div class="container">      <h1 class="reveal">The proof is<br/><em>in the portfolio.</em></h1>
+    </div>
+  </section>
+
+  <!-- FILTER -->
+  <section class="portfolio-section section-pad">
+    <div class="container">
+      <div class="portfolio-filter reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="print">Print &amp; Design</button>
+        <button class="filter-btn" data-filter="ugc">UGC</button>
+        <button class="filter-btn" data-filter="brand">Brand Strategy</button>
+        <button class="filter-btn" data-filter="events">Events</button>
+      </div>
+
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- Cards will be populated by JS — placeholders shown until real work is added -->
+        <div class="portfolio-card reveal" data-category="print">
+          <div class="portfolio-card-inner">
+            <div class="portfolio-img-placeholder">
+              <img src="logo.svg" alt="BLC" class="portfolio-lily" />
+            </div>
+            <div class="portfolio-card-info">
+              <p class="portfolio-category">Print &amp; Design</p>
+              <h3>Brand Identity — Coming Soon</h3>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="ugc">
+          <div class="portfolio-card-inner">
+            <div class="portfolio-img-placeholder">
+              <img src="logo.svg" alt="BLC" class="portfolio-lily" />
+            </div>
+            <div class="portfolio-card-info">
+              <p class="portfolio-category">UGC Creation</p>
+              <h3>Campaign Content — Coming Soon</h3>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="brand">
+          <div class="portfolio-card-inner">
+            <div class="portfolio-img-placeholder">
+              <img src="logo.svg" alt="BLC" class="portfolio-lily" />
+            </div>
+            <div class="portfolio-card-info">
+              <p class="portfolio-category">Brand Strategy</p>
+              <h3>Strategy Deck — Coming Soon</h3>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="events">
+          <div class="portfolio-card-inner">
+            <div class="portfolio-img-placeholder">
+              <img src="logo.svg" alt="BLC" class="portfolio-lily" />
+            </div>
+            <div class="portfolio-card-info">
+              <p class="portfolio-category">Events &amp; Coverage</p>
+              <h3>Event Coverage — Coming Soon</h3>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="print">
+          <div class="portfolio-card-inner">
+            <div class="portfolio-img-placeholder">
+              <img src="logo.svg" alt="BLC" class="portfolio-lily" />
+            </div>
+            <div class="portfolio-card-info">
+              <p class="portfolio-category">Print &amp; Design</p>
+              <h3>Stationery Suite — Coming Soon</h3>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="ugc">
+          <div class="portfolio-card-inner">
+            <div class="portfolio-img-placeholder">
+              <img src="logo.svg" alt="BLC" class="portfolio-lily" />
+            </div>
+            <div class="portfolio-card-info">
+              <p class="portfolio-category">UGC Creation</p>
+              <h3>Product Launch — Coming Soon</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner section-pad">
+    <div class="container text-center reveal">
+      <h2>Want to be<br/><em>in the portfolio?</em></h2>
+      <div class="cta-pair">
+        <a href="quote.html" class="btn-primary">Start a Project</a>
+        <a href="quote.html" class="btn-outline">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="logo.svg" alt="BLC" class="footer-lily" />
+        <p class="footer-name">Black Lillie Collective</p>
+        <p class="footer-tagline">A creative studio for those building something worth seeing.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="story.html">Our Story</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="quote.html">Get a Quote</a>      </nav>
+      <div class="footer-social">
+        <a href="https://instagram.com/blacklillieco" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@blacklillieco" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://pinterest.com/blacklilliecollective" target="_blank" rel="noopener">Pinterest</a>
+        <a href="https://facebook.com/blacklilliecollective" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <p class="footer-copy">© 2026 Black Lillie Collective. All rights reserved. | <a href="mailto:madison@blacklilliecollective.com">madison@blacklilliecollective.com</a></p>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
