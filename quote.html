@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get a Quote — Black Lillie Collective</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo"><img src="logo.svg" alt="BLC" class="nav-logo-img" /></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <img src="logo.svg" alt="menu" class="nav-toggle-lily" />
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="quote.html" class="nav-cta active">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero section-pad">
+    <div class="container">
+      <p class="eyebrow reveal">Get a Quote</p>
+      <h1 class="reveal">Tell us what<br/><em>you're building.</em></h1>
+    </div>
+  </section>
+
+  <section class="quote-section section-pad">
+    <div class="container">
+      <!-- TOGGLE TABS -->
+      <div class="quote-tabs reveal">
+        <button class="quote-tab active" data-form="print" id="tabPrint">Print &amp; Design</button>
+        <button class="quote-tab" data-form="ugc" id="tabUgc">UGC Creation</button>
+      </div>
+
+      <!-- PRINT FORM -->
+      <div class="quote-form-wrap active" id="formPrint">
+        <p class="body-copy reveal" style="margin-bottom:2rem;">Fill out the form below and we'll follow up within 48 hours with a custom quote for your print or design project.</p>
+        <div class="tally-wrap reveal">
+          <iframe
+            data-tally-src="https://tally.so/embed/68W67o?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="500"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Print &amp; Design Quote"
+            style="border:none;"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- UGC FORM -->
+      <div class="quote-form-wrap" id="formUgc">
+        <p class="body-copy reveal" style="margin-bottom:2rem;">Fill out the form below and we'll follow up within 48 hours with a custom UGC package for your brand.</p>
+        <div class="tally-wrap reveal">
+          <iframe
+            data-tally-src="https://tally.so/embed/68W62o?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="500"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="UGC Creation Quote"
+            style="border:none;"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="quote-alt reveal">
+        <p>Looking for Social Media Management, Brand Strategy, or Events &amp; Coverage?</p>
+        <a href="contact.html" class="link-arrow">Use the full inquiry form →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="logo.svg" alt="BLC" class="footer-lily" />
+        <p class="footer-name">Black Lillie Collective</p>
+        <p class="footer-tagline">A creative studio for those building something worth seeing.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="story.html">Our Story</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="quote.html">Get a Quote</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://instagram.com/blacklillieco" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@blacklillieco" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://pinterest.com/blacklilliecollective" target="_blank" rel="noopener">Pinterest</a>
+        <a href="https://facebook.com/blacklilliecollective" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <p class="footer-copy">© 2026 Black Lillie Collective. All rights reserved. | <a href="mailto:madison@blacklilliecollective.com">madison@blacklilliecollective.com</a></p>
+    </div>
+  </footer>
+
+  <script src="https://tally.so/widgets/embed.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
