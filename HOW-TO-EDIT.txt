@@ -1,0 +1,71 @@
+HOW TO EDIT YOUR BLC SITE
+=========================
+
+You almost never need to touch the HTML. Two files do everything:
+
+1) content.js   →  all your WORDS and which PHOTO goes where
+2) the folder   →  drop your actual image files in here
+
+------------------------------------------------------------
+TO CHANGE WORDS
+------------------------------------------------------------
+- Open content.js in any text editor (even Notes / TextEdit).
+- Change the text inside the "quotes".
+- Keep the quotes and the comma at the end of each line.
+- Tricks:
+    *asterisks*  = makes that part italic + mauve
+    |  (pipe)    = a line break inside a heading
+- Save. Done.
+
+------------------------------------------------------------
+TO ADD A PHOTO
+------------------------------------------------------------
+- Put your image file in this folder (same place as content.js).
+- In content.js, type its exact filename, e.g.:
+      work1Photo: "work-1.jpg",
+- Leave a photo field as ""  to keep the plain dark card.
+
+Photo spots available on the homepage:
+    heroPhoto    – full-screen background behind the headline
+    storyPhoto   – the image beside "The Studio" text
+    work1Photo   – first Selected Work card
+    work2Photo   – second card
+    work3Photo   – third card
+
+------------------------------------------------------------
+TIPS
+------------------------------------------------------------
+- Use web-sized images (under ~500 KB each) so the site stays fast.
+- Filenames: no spaces. Use dashes, e.g. "brand-shoot-1.jpg".
+- After editing, re-upload the folder to Vercel (or git push).
+
+------------------------------------------------------------
+PHOTOS ALREADY ADDED (June 2026)
+------------------------------------------------------------
+These image files are in the folder and already wired in content.js:
+    madi-headshot.jpg     -> The Studio section
+    event-campus.jpg      -> Work card 1 (Events & Coverage)
+    brand-spf.jpg         -> Work card 2 (Brand Strategy)
+    print-newspaper.jpg   -> Work card 3 (Print & Design)
+
+Also included, ready to use whenever you want (e.g. on the Work page):
+    brand-flirtcard.jpg   (FlirtCard deck cover)
+    print-patricia.jpg    (Patricia Gullatte welcome design)
+    print-calendar.jpg    (Lee Family Calendar — contains a family photo)
+    event-pregame.jpg     (FlirtCard pregame video still)
+
+To swap any card photo, just change the filename in content.js.
+
+------------------------------------------------------------
+UPDATE — Work page + videos + About photo
+------------------------------------------------------------
+NEW image files added:
+    grad-rome.jpg        -> The Studio / About section (graduation)
+    print-calendar.jpg   -> now privacy-safe (surname + faces blurred)
+    madi-orchid.jpg, madi-neon.jpg, madi-astra.jpg  -> spare editorial shots
+
+NEW video files (Events & Coverage on the Work page):
+    event-campus.mp4 / event-campus-poster.jpg
+    event-pregame.mp4 / event-pregame-poster.jpg
+The videos auto-play on hover (desktop) or tap (mobile), muted + looping.
+To swap a video: replace the .mp4 file and its -poster.jpg with the same names.

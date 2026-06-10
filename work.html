@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work — Black Lillie Collective</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--cherry:#330000;--onyx:#0F0F0F;--pearl:#C9B79C;--mauve:#B08A8E;--cream:#F4EDE4;--display:'Cormorant Garamond',Georgia,serif;--body:'Montserrat',sans-serif;--nav-h:76px;--max:1280px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cherry);color:var(--pearl);font-family:var(--body);font-size:15px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img,video{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}ul{list-style:none;}
+button{background:none;border:none;cursor:pointer;font-family:inherit;color:inherit;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem);}
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:9999;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px;animation:gr .5s steps(2) infinite;}
+@keyframes gr{0%{transform:translate(0,0)}25%{transform:translate(-2%,-3%)}50%{transform:translate(3%,2%)}75%{transform:translate(-1%,4%)}100%{transform:translate(2%,-2%)}}
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,5rem);background:rgba(15,15,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(176,138,142,.12);}
+.nav-mark{width:34px;height:34px;}.nav-mark svg{width:100%;height:100%;}
+.nav-links{display:flex;align-items:center;gap:clamp(1.2rem,2.5vw,2.6rem);}
+.nav-links a{font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--pearl);position:relative;transition:color .2s;}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--mauve);transition:width .25s;}
+.nav-links a:hover{color:var(--cream);}.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-links a.active{color:var(--cream);}
+.nav-cta{border:1px solid var(--mauve);padding:.5rem 1.3rem;color:var(--mauve)!important;border-radius:1px;transition:all .2s;}
+.nav-cta:hover{background:var(--mauve);color:var(--onyx)!important;}.nav-cta::after{display:none!important;}
+.nav-toggle{display:none;width:34px;height:34px;}
+.page-hero{padding:calc(var(--nav-h) + 5rem) 0 3rem;}
+.page-hero h1{font-family:var(--display);font-weight:500;font-style:italic;font-size:clamp(2.8rem,8vw,6.5rem);line-height:.98;color:var(--cream);max-width:13ch;}
+.page-hero h1 em{font-style:normal;color:var(--mauve);}
+.page-hero p{margin-top:1.5rem;max-width:44ch;color:var(--pearl);font-size:.95rem;}
+.cat{padding:clamp(3.5rem,8vh,6rem) 0;border-top:1px solid rgba(176,138,142,.16);}
+.cat-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.5rem;}
+.cat-head .num{font-family:var(--display);font-style:italic;color:var(--mauve);opacity:.6;font-size:1.1rem;}
+.cat-head h2{font-family:var(--display);font-weight:500;font-size:clamp(1.9rem,5vw,3.4rem);color:var(--cream);line-height:1;}
+.grid{display:grid;gap:1.5rem;}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g2{grid-template-columns:repeat(2,1fr);}
+.tile{position:relative;overflow:hidden;border:1px solid rgba(176,138,142,.18);background:var(--onyx);transition:border-color .3s,transform .3s;}
+.tile:hover{border-color:rgba(176,138,142,.5);transform:translateY(-4px);}
+.tile img,.tile video{width:100%;height:100%;object-fit:cover;display:block;}
+.tile .media{aspect-ratio:3/4;overflow:hidden;}
+.tile.land .media{aspect-ratio:4/3;}
+.tile .cap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-top:1px solid rgba(176,138,142,.14);}
+.tile .cap .t{font-size:.82rem;color:var(--cream);}
+.tile .cap .k{font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mauve);}
+/* video tiles */
+.vtile .media{position:relative;aspect-ratio:9/16;background:#000;}
+.vtile.land .media{aspect-ratio:16/9;}
+.vtile .badge{position:absolute;top:.8rem;left:.8rem;z-index:3;display:flex;align-items:center;gap:.4rem;font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:rgba(15,15,15,.6);backdrop-filter:blur(4px);padding:.35rem .7rem;border-radius:40px;}
+.vtile .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--mauve);}
+.vtile .hint{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.2rem;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent 55%,rgba(0,0,0,.5));pointer-events:none;transition:opacity .3s;}
+.vtile.playing .hint{opacity:0;}
+/* deck tiles */
+.deck-tile{cursor:pointer;}
+.deck-tile .media{position:relative;}
+.deck-hint{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;padding:1.1rem;font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent 50%,rgba(0,0,0,.55));opacity:0;transition:opacity .3s;}
+.deck-tile:hover .deck-hint{opacity:1;}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:5000;display:none;align-items:center;justify-content:center;background:rgba(8,2,2,.94);backdrop-filter:blur(6px);}
+.lb.open{display:flex;}
+.lb-stage{max-width:min(1100px,92vw);width:100%;display:flex;flex-direction:column;align-items:center;gap:1rem;}
+.lb-img{max-width:100%;max-height:78vh;object-fit:contain;border:1px solid rgba(176,138,142,.25);box-shadow:0 20px 60px rgba(0,0,0,.6);}
+.lb-bar{display:flex;align-items:center;justify-content:center;gap:1.5rem;}
+.lb-count{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pearl);}
+.lb-btn{width:46px;height:46px;border:1px solid var(--mauve);border-radius:50%;color:var(--mauve);font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.lb-btn:hover{background:var(--mauve);color:var(--onyx);}
+.lb-close{position:absolute;top:1.4rem;right:1.6rem;font-size:1.6rem;color:var(--pearl);line-height:1;transition:color .2s;}
+.lb-close:hover{color:var(--cream);}
+.lb-title{position:absolute;top:1.4rem;left:1.6rem;font-family:var(--display);font-style:italic;font-size:1.2rem;color:var(--cream);}
+.events-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;align-items:start;max-width:760px;}
+.cta{padding:clamp(5rem,12vh,8rem) 0;border-top:1px solid rgba(176,138,142,.16);}
+.cta h2{font-family:var(--display);font-weight:500;font-size:clamp(2.2rem,6vw,4.5rem);line-height:1;color:var(--cream);max-width:15ch;}
+.cta h2 em{font-style:italic;color:var(--mauve);}
+.cta-btn{display:inline-block;margin-top:2.2rem;background:var(--mauve);color:var(--onyx);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:1rem 2.4rem;border-radius:1px;transition:all .25s;}
+.cta-btn:hover{background:var(--cream);transform:translateY(-2px);}
+.footer{border-top:1px solid rgba(176,138,142,.14);padding:clamp(3rem,8vh,5rem) 0 2.5rem;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;}
+.foot-mark{width:42px;margin-bottom:1rem;opacity:.7;}
+.foot-name{font-family:var(--display);font-size:1.15rem;color:var(--cream);}
+.foot-tag{font-size:.78rem;opacity:.6;max-width:24ch;margin-top:.3rem;}
+.foot-col a{display:block;font-size:.74rem;letter-spacing:.05em;color:var(--pearl);margin-bottom:.7rem;transition:color .2s;}
+.foot-col a:hover{color:var(--mauve);}
+.foot-copy{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(176,138,142,.1);font-size:.7rem;opacity:.5;}
+.foot-copy a{color:inherit;}
+.r{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}.r.in{opacity:1;transform:none;}
+@media(max-width:820px){
+  .nav-links{display:none;position:fixed;top:var(--nav-h);left:0;right:0;flex-direction:column;gap:1.4rem;padding:2rem;background:rgba(15,15,15,.98);border-bottom:1px solid rgba(176,138,142,.15);}
+  .nav-links.open{display:flex;}.nav-toggle{display:block;}
+  .g3{grid-template-columns:repeat(2,1fr);}
+  .foot-top{grid-template-columns:1fr 1fr;}.foot-brand{grid-column:1/-1;}
+}
+@media(max-width:560px){.g3,.g2,.events-grid{grid-template-columns:1fr;}.foot-top{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-mark" aria-label="BLC Home"><svg viewBox="0 0 841.89 595.28" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#B08A8E" stroke-width="14" stroke-linecap="round"><path d="M418.56,75c59,57,40,150-3.4,206l-10,17,22,1.3c61-46,106-124-8.9-224Z"/><path d="M416.22,517c-59-57-51-147,.6-204l10-17s0,0-22-1.3c-60,46-100,123,12,223Z"/><path d="M225.73,186c66-.4,153,39,179,105l10,17,12-19c-9-76-57-153-202-104Z"/><path d="M617.66,404c-68-2.5-162-54-190-115l-5-8.7-12,19c9,76,83,143,207,105Z"/></g></svg></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg viewBox="0 0 841.89 595.28" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#B08A8E" stroke-width="16" stroke-linecap="round"><path d="M418.56,75c59,57,40,150-3.4,206l-10,17,22,1.3c61-46,106-124-8.9-224Z"/><path d="M416.22,517c-59-57-51-147,.6-204l10-17s0,0-22-1.3c-60,46-100,123,12,223Z"/></g></svg></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1 class="r">The proof is <em>in the portfolio.</em></h1>
+    <p class="r">A selection of recent print, brand, and content work — across editorial design, campaign strategy, and on-the-ground activation.</p>
+  </div>
+</section>
+
+<!-- PRINT -->
+<section class="cat">
+  <div class="wrap">
+    <div class="cat-head r"><span class="num">01</span><h2>Print &amp; Design</h2></div>
+    <div class="grid g3">
+      <div class="tile r"><div class="media"><img src="print-newspaper.jpg" alt="Rome Times graduation editorial" loading="lazy"></div><div class="cap"><span class="t">Rome Times — Editorial</span><span class="k">Print</span></div></div>
+      <div class="tile r"><div class="media"><img src="print-patricia.jpg" alt="Patricia Gullatte welcome design" loading="lazy"></div><div class="cap"><span class="t">Welcome Suite</span><span class="k">Print</span></div></div>
+      <div class="tile r"><div class="media"><img src="print-calendar.jpg" alt="Family calendar cover design" loading="lazy"></div><div class="cap"><span class="t">Calendar Cover</span><span class="k">Print</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND -->
+<section class="cat">
+  <div class="wrap">
+    <div class="cat-head r"><span class="num">02</span><h2>Brand &amp; Creative Strategy</h2></div>
+    <div class="grid g2">
+      <div class="tile land deck-tile r" data-deck="spf">
+        <div class="media"><img src="brand-spf-1.jpg" alt="Sunmatters SPF ist Sexy campaign" loading="lazy"><span class="deck-hint">View deck · 5 slides</span></div>
+        <div class="cap"><span class="t">Sunmatters — “SPF ist Sexy”</span><span class="k">Campaign</span></div>
+      </div>
+      <div class="tile land deck-tile r" data-deck="flirt">
+        <div class="media"><img src="brand-flirtcard-1.jpg" alt="FlirtCard brand campaign" loading="lazy"><span class="deck-hint">View deck · 9 slides</span></div>
+        <div class="cap"><span class="t">FlirtCard — “Go Mingle”</span><span class="k">Brand</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS / VIDEO -->
+<section class="cat">
+  <div class="wrap">
+    <div class="cat-head r"><span class="num">03</span><h2>Events &amp; Coverage</h2></div>
+    <div class="events-grid">
+      <div class="tile vtile land r" data-video>
+        <div class="media">
+          <span class="badge"><span class="dot"></span>Reel</span>
+          <video src="event-campus.mp4" poster="event-campus-poster.jpg" muted loop playsinline preload="none"></video>
+          <span class="hint">Hover to play</span>
+        </div>
+        <div class="cap"><span class="t">Campus Activation</span><span class="k">Coverage</span></div>
+      </div>
+      <div class="tile vtile r" data-video>
+        <div class="media">
+          <span class="badge"><span class="dot"></span>Reel</span>
+          <video src="event-pregame.mp4" poster="event-pregame-poster.jpg" muted loop playsinline preload="none"></video>
+          <span class="hint">Hover to play</span>
+        </div>
+        <div class="cap"><span class="t">Pregame Activation</span><span class="k">Coverage</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="r">Want to be <em>in the portfolio?</em></h2>
+    <a href="quote.html" class="cta-btn r">Get a Quote →</a>
+  </div>
+</section>
+
+<!-- DECK LIGHTBOX -->
+<div class="lb" id="lb" aria-hidden="true">
+  <span class="lb-title" id="lbTitle"></span>
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <div class="lb-stage">
+    <img class="lb-img" id="lbImg" src="" alt="Deck slide" />
+    <div class="lb-bar">
+      <button class="lb-btn" id="lbPrev" aria-label="Previous slide">&larr;</button>
+      <span class="lb-count" id="lbCount">1 / 1</span>
+      <button class="lb-btn" id="lbNext" aria-label="Next slide">&rarr;</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-mark"><svg viewBox="0 0 841.89 595.28" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#B08A8E" stroke-width="14" stroke-linecap="round"><path d="M418.56,75c59,57,40,150-3.4,206l-10,17,22,1.3c61-46,106-124-8.9-224Z"/><path d="M416.22,517c-59-57-51-147,.6-204l10-17s0,0-22-1.3c-60,46-100,123,12,223Z"/><path d="M225.73,186c66-.4,153,39,179,105l10,17,12-19c-9-76-57-153-202-104Z"/><path d="M617.66,404c-68-2.5-162-54-190-115l-5-8.7-12,19c9,76,83,143,207,105Z"/></g></svg></div>
+        <p class="foot-name">Black Lillie Collective</p>
+        <p class="foot-tag">A creative studio for those building something worth seeing.</p>
+      </div>
+      <div class="foot-col"><a href="story.html">Our Story</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="quote.html">Get a Quote</a></div>
+      <div class="foot-col"><a href="https://instagram.com/blacklillieco" target="_blank" rel="noopener">Instagram</a><a href="https://tiktok.com/@blacklillieco" target="_blank" rel="noopener">TikTok</a><a href="https://pinterest.com/blacklilliecollective" target="_blank" rel="noopener">Pinterest</a></div>
+    </div>
+    <p class="foot-copy">&copy; 2026 Black Lillie Collective. <a href="mailto:madison@blacklilliecollective.com">madison@blacklilliecollective.com</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.r').forEach(function(el){io.observe(el);});
+  // nav toggle
+  var tg=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
+  if(tg&&nl){tg.addEventListener('click',function(){nl.classList.toggle('open');});}
+  // video play on hover (desktop) / tap (mobile)
+  document.querySelectorAll('[data-video]').forEach(function(tile){
+    var v=tile.querySelector('video');
+    function play(){ v.preload='auto'; v.play().then(function(){tile.classList.add('playing');}).catch(function(){}); }
+    function stop(){ v.pause(); tile.classList.remove('playing'); }
+    tile.addEventListener('mouseenter',play);
+    tile.addEventListener('mouseleave',stop);
+    tile.addEventListener('click',function(){ if(v.paused){play();} else {stop();} });
+  });
+
+  // ---- deck lightbox ----
+  var decks={
+    spf:{title:'Sunmatters — “SPF ist Sexy”', slides:['brand-spf-1.jpg','brand-spf-2.jpg','brand-spf-3.jpg','brand-spf-4.jpg','brand-spf-5.jpg']},
+    flirt:{title:'FlirtCard — “Go Mingle”', slides:['brand-flirtcard-1.jpg','brand-flirtcard-2.jpg','brand-flirtcard-3.jpg','brand-flirtcard-4.jpg','brand-flirtcard-5.jpg','brand-flirtcard-6.jpg','brand-flirtcard-7.jpg','brand-flirtcard-8.jpg','brand-flirtcard-9.jpg']}
+  };
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCount=document.getElementById('lbCount'),lbTitle=document.getElementById('lbTitle');
+  var cur=null,idx=0;
+  function show(i){
+    var s=decks[cur].slides; idx=(i+s.length)%s.length;
+    lbImg.src=s[idx]; lbCount.textContent=(idx+1)+' / '+s.length;
+  }
+  function open(key){ cur=key; lbTitle.textContent=decks[key].title; show(0); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
+  function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); cur=null; }
+  document.querySelectorAll('[data-deck]').forEach(function(t){ t.addEventListener('click',function(){ open(t.getAttribute('data-deck')); }); });
+  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();show(idx+1);});
+  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();show(idx-1);});
+  document.getElementById('lbClose').addEventListener('click',close);
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close(); else if(e.key==='ArrowRight')show(idx+1); else if(e.key==='ArrowLeft')show(idx-1);
+  });
+  // swipe on touch
+  var sx=0;
+  lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){ show(idx+(dx<0?1:-1)); }});
+})();
+</script>
+</body>
+</html>
